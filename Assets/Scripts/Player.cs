@@ -1,4 +1,5 @@
 using UnityEngine;
+//using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
@@ -9,10 +10,13 @@ public class Player : MonoBehaviour
     private Vector2 movement;
     private Rigidbody2D rb;
 
+    //public NavMeshAgent agent;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        //agent = GetComponent<NavMeshAgent>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
