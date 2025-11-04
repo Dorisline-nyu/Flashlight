@@ -37,4 +37,12 @@ public class Player : MonoBehaviour
     {
         rb.MovePosition(rb.position + movement * movementSpeed);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Battery"))
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 }
