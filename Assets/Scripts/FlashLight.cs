@@ -11,10 +11,12 @@ public class FlashLight : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
+        Debug.Log(other.gameObject.name);
         ITakeDamage target = other.GetComponent<ITakeDamage>();
         if (target != null)
         {
-            target.TakeDamage(damagePerSecond * Time.deltaTime);
+            target.TakeDamage(damagePerSecond * Time.deltaTime); Debug.Log("dealing damage");
+            
         }
     }
 }
