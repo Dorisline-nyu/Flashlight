@@ -14,6 +14,9 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     private ITakeDamage _takeDamageImplementation;
 
+    [SerializeField] private int damage;
+    private int takeHealth;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -48,4 +51,13 @@ public class Enemy : MonoBehaviour, ITakeDamage
             Destroy(gameObject);
         }
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.GetComponent<Player>().TakeDamage(damage);
+        }
+    }
+
 }
